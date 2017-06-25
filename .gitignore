@@ -1,1 +1,5 @@
-bower_components/
+node_modules/
+compile.bat
+compile.sh
+config.json
+build/bundle.js
