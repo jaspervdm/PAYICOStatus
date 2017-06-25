@@ -8,9 +8,6 @@ var saleContract, rateContract, tokenContract;
 
 var saleStart, hardcap, vault, vaultBalance, altDeposits;
 
-var nodeURL = 'https://node.mavenlab.net:8544/';
-var ourAddr = '0x8182f1032D8e921ac9E5A378228AFf3FF4514550';
-
 var saleAddr = '0xd43D09Ec1bC5e57C8F3D0c64020d403b04c7f783';
 var tokenAddr = '0xB97048628DB6B661D4C2aA833e95Dbe1A905B280';
 var rateAddr = '0x31E89d5186fA7AA857bF81E3bAD5E183a006900C';
@@ -175,7 +172,7 @@ function update() {
     }
   });
 
-  tokenContract.balanceOf(ourAddr, function (error, result) {
+  tokenContract.balanceOf(config.our_addr, function (error, result) {
     if (!error) {
       $('#our_tokens').html(''+formatThousandsNoRounding(web3.toBigNumber(result).dividedBy(web3.toBigNumber(10).toPower(18)), 3)+' PAY');
     }
@@ -186,7 +183,7 @@ function update() {
 }
 
 $(window).on('load', function () {
-  web3.setProvider(new web3.providers.HttpProvider(nodeURL));
+  web3.setProvider(new web3.providers.HttpProvider(config.node_url));
 
   /*saleContract = web3.eth.contract(abi.sale).at(saleAddr);
   rateContract = web3.eth.contract(abi.rate).at(rateAddr);
