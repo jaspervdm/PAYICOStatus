@@ -1,7 +1,7 @@
 var $ = require('jquery');
 var Web3 = require('web3');
 var web3 = new Web3();
-var abi = require("./tenxabi.js")
+var abi = require("./tenxabi.js");
 var config = require("./config.json");
 
 var saleContract, rateContract, tokenContract;
@@ -84,8 +84,6 @@ function update() {
       console.log('Error: '+error);
     }
   });
-
-  return;
 
   // Update sale start time
   saleContract.start(function (error, result) {
